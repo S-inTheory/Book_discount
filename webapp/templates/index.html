@@ -8,8 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <title>Главная страница</title>
-    <nav> <a href="/"><img src='{{url_for("static", filename="img/logo.png")}}'  alt="logo", width="50px", height="50.px"></a>  <button href="/"> Вход</button></nav>
+    <nav> <a href="/"><img src='{{url_for("static", filename="img/logo.png")}}' alt="logo" , width="50px" , height="50.px"></a>  <a href="/register"><button>Регистрация</button></a><a href="/login"><button>Вход</button></a></nav>
+
 </head>
 <body>
     <h1>Привет тут скоро будет сайт.</h1>

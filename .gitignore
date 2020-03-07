@@ -1,2 +1,6 @@
-.idea
+/venv
+webapp.db
 labirint_tomminokers.html
+.idea
+/webapp/__pycache__
+/webapp/
