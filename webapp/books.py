@@ -11,9 +11,9 @@ def get_html(url):
         print('Сетевая ошибка')
         return False
 
+
 def get_book_info(shop, html):
-    shop = str(shop)
-    shop = shop.lower()
+    shop = str(shop).lower()
     if shop == 'labirint':
         print('Лабиринт')
         soup = BeautifulSoup(html, 'html.parser')
