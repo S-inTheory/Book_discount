@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="/main" class="navbar-brand"><img src='{{url_for("static", filename="img/logo.png")}}' alt="logo" , width="50px" , height="50.px"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a class="nav-link" href="/users/register">Регистрация</a>
+      </li>
+      <li class="nav-item">
+        {% if current_user.is_authenticated %}
+          <a class="nav-link" href="/users/logout">Выход</a>
+        {% else %}
+          <a class="nav-link" href="/users/login">Вход</a>
+        {% endif %}
+      </li>
+
+    </form>
+  </div>
+</nav>
