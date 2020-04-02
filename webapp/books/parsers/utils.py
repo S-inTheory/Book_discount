@@ -1,6 +1,5 @@
 import requests
 from webapp.user.models import db, Book, Impressum
-from bs4 import BeautifulSoup
 
 
 def get_html(url):
@@ -23,7 +22,7 @@ def save_impressum(author='', publisher=''):
     db.session.commit()
 
 
-def save_books(title='', price_labirint='', url_labirint='', price_book24=0, url_book24=''):
+def save_books(title=None, price_labirint=None, url_labirint=None, price_book24=None, url_book24=None):
     new_book = Book(title=title, price_labirint=price_labirint, url_labirint=url_labirint, price_book24=price_book24,
                     url_book24=url_book24)
     db.session.add(new_book)

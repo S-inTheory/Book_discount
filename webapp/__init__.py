@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_login import LoginManager, login_required
 from flask_migrate import Migrate
 
-from webapp.user.models import db, User
+from webapp.user.models import db, User, Book
 from webapp.user.views import blueprint as user_blueprint
 
 
@@ -21,10 +21,11 @@ def create_app():
     def load_user(user_id):
         return User.query.get(user_id)
 
-    @app.route('/')
+    @app.route('/', methods=['GET', 'POST'])
     def index():
         page_title = 'Главная страница'
         return render_template('books/index.html', title=page_title)
+
 
     @app.route('/main')
     @login_required
@@ -32,7 +33,6 @@ def create_app():
         return render_template('main.html')
 
     return app
-    return app.add_url_rule('/img/<path:filename>')
 
 
 

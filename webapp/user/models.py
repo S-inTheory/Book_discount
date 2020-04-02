@@ -23,16 +23,16 @@ class User(db.Model, UserMixin):
 
 
 class Impressum(db.Model):
-    author = db.Column(db.String, primary_key=True, unique=True, nullable=False)
-    publisher = db.Column(db.String, primary_key=True, unique=True, nullable=False)
+    author = db.Column(db.String, primary_key=True, unique=True)
+    publisher = db.Column(db.String, primary_key=True, unique=True)
 
 
 class Book(db.Model):
-    title = db.Column(db.String, primary_key=True, unique=False, nullable=False)
-    url_labirint = db.Column(db.String, unique=False, nullable=False)
-    url_book24 = db.Column(db.String, unique=True, nullable=False)
-    price_labirint = db.Column(db.Integer, unique=False, nullable=False)
-    price_book24 = db.Column(db.Integer, unique=False, nullable=False)
+    title = db.Column(db.String, primary_key=True, unique=False)
+    url_labirint = db.Column(db.String, unique=False)
+    url_book24 = db.Column(db.String, unique=True)
+    price_labirint = db.Column(db.Integer, unique=False)
+    price_book24 = db.Column(db.Integer, unique=False)
     author = db.Column(db.String,
                        db.ForeignKey('impressum.author', ondelete='CASCADE'),
                        index=True

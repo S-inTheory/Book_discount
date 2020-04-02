@@ -3,5 +3,9 @@ webapp.db
 labirint_tomminokers.html
 .idea
 /webapp/__pycache__
-/migrations
+migrations/
+webapp/user/__pycache__/forms.cpython-37.pyc
+webapp/user/__pycache__/models.cpython-37.pyc
+webapp/user/__pycache__/views.cpython-37.pyc
+
 

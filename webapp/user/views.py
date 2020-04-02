@@ -1,8 +1,10 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from webapp.user.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
-from webapp.user.models import User
+from webapp.user.models import User, Book
 from webapp import db
+from webapp.user.forms import SearchForm
+from webapp.books.parsers import labirint_and_book24_find
 
 blueprint = Blueprint('user', __name__, url_prefix='/users')
 
@@ -60,3 +62,17 @@ def process_reg():
                                                         ))
     flash('Пожалуйста, исправьте ошибки в форме')
     return redirect(url_for('user.register'))
+
+
+@blueprint.route('/', methods=['GET'])
+def search_form():
+    form = SearchForm(request.form)
+    if form.validate_on_submit():
+        book = Book(title=form.title.data)
+        labirint_and_book24_find.get_search_books(book)
+
+
+
+
+
+
