@@ -32,7 +32,7 @@ class RegistrationForm(FlaskForm):
 
 
 class SearchForm(Form):
-    title = StringField('title', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired()], render_kw={"class": "form-control"})
     submit = SubmitField('Search', render_kw={"class": "btn btn-primary"})
 
     def validate_title(self, title):

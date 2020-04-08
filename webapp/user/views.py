@@ -70,7 +70,7 @@ def search_form():
     if form.validate_on_submit():
         book = Book(title=form.title.data)
         labirint_and_book24_find.get_search_books(book)
-
+    return render_template('menu.html', title='Search', form=form)
 
 
 
