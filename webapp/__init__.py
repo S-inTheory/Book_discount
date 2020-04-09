@@ -24,7 +24,7 @@ def create_app():
     @app.route('/', methods=['GET', 'POST'])
     def index():
         page_title = 'Главная страница'
-        return render_template('books/index.html', title=page_title)
+        return render_template('/base.html', title=page_title)
 
 
     @app.route('/main')
