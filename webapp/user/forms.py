@@ -1,5 +1,5 @@
-from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, PasswordField, BooleanField, SubmitField, Form
+from flask_wtf import FlaskForm, Form
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 
 from webapp.user.models import User, Book
@@ -31,11 +31,4 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Пользователь с такой почтой уже существует')
 
 
-class SearchForm(Form):
-    title = StringField('title', validators=[DataRequired()], render_kw={"class": "form-control"})
-    submit = SubmitField('Search', render_kw={"class": "btn btn-primary"})
 
-    def validate_title(self, title):
-        book_count = Book.query.filter_by(title=title.data)
-        if book_count > 0:
-            raise ValidationError('Такая книга есть в нашей базе данных, сейчас мы вам её покажем')

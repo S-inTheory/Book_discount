@@ -3,8 +3,8 @@ from webapp.user.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
 from webapp.user.models import User, Book
 from webapp import db
-from webapp.user.forms import SearchForm
-from webapp.books.parsers import labirint_and_book24_find
+from webapp.books.forms import SearchForm
+
 
 blueprint = Blueprint('user', __name__, url_prefix='/users')
 
@@ -69,7 +69,7 @@ def search_form():
     form = SearchForm(request.form)
     if form.validate_on_submit():
         book = Book(title=form.title.data)
-        labirint_and_book24_find.get_search_books(book)
+        books_find.get_search_books(book)
     return render_template('menu.html', title='Search', form=form)
 
 

@@ -1,9 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_login import LoginManager, login_required
 from flask_migrate import Migrate
 
 from webapp.user.models import db, User, Book
+from webapp.books.forms import SearchForm
 from webapp.user.views import blueprint as user_blueprint
+from webapp.books.book_views import blueprint as books_blueprint
 
 
 def create_app():
@@ -16,6 +18,7 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'user.login'
     app.register_blueprint(user_blueprint)
+    app.register_blueprint(books_blueprint)
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -33,8 +36,3 @@ def create_app():
         return render_template('main.html')
 
     return app
-
-
-
-
-
