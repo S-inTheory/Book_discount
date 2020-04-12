@@ -4,10 +4,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 {% block content %}
-    <form action="{{ url_for('user.search_form') }}" method="GET" class="navbar-nav mr-auto">
+    <form action="{{ url_for('search_process') }}" method="GET" class="navbar-nav mr-auto">
       <div class="form-group">
-        {{ form.title.label }}
-        {{ form.title(size=32) }}
+        {{ form.book(size=32) }}
       </div>
       {{ form.submit() }}
     </form>
