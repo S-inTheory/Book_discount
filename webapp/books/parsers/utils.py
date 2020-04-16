@@ -17,15 +17,16 @@ def get_html(url):
 
 
 def save_impressum(author='', publisher=''):
-    new_author_publisher = Impressum(author=author, publisher=publisher)
-    db.session(new_author_publisher)
+    new_impressum = Impressum(author=author, publisher=publisher)
+    db.session(new_impressum)
     db.session.commit()
 
 
 def save_books(title=None, price_labirint=None, url_labirint=None, price_book24=None, url_book24=None):
-    new_book = Book(title=title, price_labirint=price_labirint, url_labirint=url_labirint, price_book24=price_book24,
-                    url_book24=url_book24)
+    new_book = Book(title=title, price_labirint=price_labirint, url_labirint=url_labirint)
+    book24 = Book(price_book24=price_book24, url_book24=url_book24)
     db.session.add(new_book)
+    db.session.add(book24)
     db.session.commit()
 
 

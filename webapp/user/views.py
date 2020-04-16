@@ -64,13 +64,7 @@ def process_reg():
     return redirect(url_for('user.register'))
 
 
-# @blueprint.route('/', methods=['GET'])
-# def search_form():
-#     form = SearchForm(request.form)
-#     if form.validate_on_submit():
-#         book = Book(title=form.title.data)
-#         books_find.get_search_books(book)
-#     return render_template('menu.html', title='Search', form=form)
+
 
 
 

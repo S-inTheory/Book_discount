@@ -23,19 +23,19 @@ def create_app():
     def load_user(user_id):
         return User.query.get(user_id)
 
-    @app.route('/', methods=['GET', 'POST'])
+    @app.route('/', methods=['GET'])
     def index():
         page_title = 'Главная страница'
         search_form = SearchForm()
         return render_template('/base.html', title=page_title, form=search_form)
 
-    @app.route('/', methods=['GET'])
+    @app.route('/search_process', methods=['POST'])
     def search_process():
         form = SearchForm()
-        if form.validate_on_submit():
-            new_book = str(form.book.data)
-            result = books_find.get_search_books(new_book)
-        return result
+        new_book = form.book.data
+        return books_find.get_search_books(new_book)
+
+
 
 
     @app.route('/main')
