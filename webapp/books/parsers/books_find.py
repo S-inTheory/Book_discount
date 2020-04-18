@@ -13,13 +13,23 @@ def get_search_books(new_book):
     soup_1 = bs4.BeautifulSoup(html_1, 'html.parser')
     book24_find = soup_1.find('div', class_='catalog-products__content')
     title = list(labirint_find.find('span', class_='product-title'))[0]
+<<<<<<< HEAD
+=======
+    print(title)
+>>>>>>> d9222162655c237db1c680a708470f635f3b9ce1
     price_labirint = list(labirint_find.find('span', class_='price-gray'))[0]
     url_labirint = 'https://www.labirint.ru'+labirint_find.find('a', class_='product-title-link')['href']
     author = list(labirint_find.find('div', class_='product-author').find('span'))[0]
     publisher = list(labirint_find.find('div', class_='product-pubhouse').find('span'))[0]
+<<<<<<< HEAD
     save_impressum(author)
     save_impressum(publisher)
     save_books(title, price_labirint, url_labirint)
+=======
+    # save_impressum(author)
+    # save_impressum(publisher)
+    # save_books(title, price_labirint, url_labirint)
+>>>>>>> d9222162655c237db1c680a708470f635f3b9ce1
     image = labirint_find.find('a', class_='cover').find('img', class_='book-img-cover')
     if image:
         image_url = image['data-src']
@@ -30,6 +40,13 @@ def get_search_books(new_book):
         output.close()
     price_book24 = list(book24_find.find('div', class_='book__price-inner'))[0].split()[0]
     url_book24 = 'https://book24.ru'+book24_find.find('a', class_='book__title-link')['href']
+<<<<<<< HEAD
     save_books(price_book24, url_book24)
     pass
 
+=======
+    # save_books(price_book24, url_book24)
+
+get_search_books('Томминокеры')
+
+>>>>>>> d9222162655c237db1c680a708470f635f3b9ce1

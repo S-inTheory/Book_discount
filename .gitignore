@@ -7,5 +7,5 @@ migrations/
 webapp/user/__pycache__/forms.cpython-37.pyc
 webapp/user/__pycache__/models.cpython-37.pyc
 webapp/user/__pycache__/views.cpython-37.pyc
-
-
+*.pyc
+.vscode

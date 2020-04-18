@@ -17,10 +17,15 @@ def get_html(url):
 
 
 def save_impressum(author='', publisher=''):
+<<<<<<< HEAD
     new_author = Impressum(author=author)
     new_publisher = Impressum(publisher=publisher)
     db.session(new_author)
     db.session(new_publisher)
+=======
+    new_impressum = Impressum(author=author, publisher=publisher)
+    db.session(new_impressum)
+>>>>>>> d9222162655c237db1c680a708470f635f3b9ce1
     db.session.commit()
 
 
