@@ -1,5 +1,5 @@
 import requests
-from webapp.user.models import db, Book, Impressum
+from webapp.books.models import Impressum, Book, db
 
 
 def get_html(url):
@@ -16,24 +16,10 @@ def get_html(url):
         return False
 
 
-def save_impressum(author='', publisher=''):
-<<<<<<< HEAD
-    new_author = Impressum(author=author)
-    new_publisher = Impressum(publisher=publisher)
-    db.session(new_author)
-    db.session(new_publisher)
-=======
-    new_impressum = Impressum(author=author, publisher=publisher)
-    db.session(new_impressum)
->>>>>>> d9222162655c237db1c680a708470f635f3b9ce1
-    db.session.commit()
-
-
 def save_books(title=None, price_labirint=None, url_labirint=None, price_book24=None, url_book24=None):
-    new_book = Book(title=title, price_labirint=price_labirint, url_labirint=url_labirint)
-    book24 = Book(price_book24=price_book24, url_book24=url_book24)
+    new_book = Book(title=title, price_labirint=price_labirint, url_labirint=url_labirint, url_book24=url_book24,
+                    price_book24=price_book24, )
     db.session.add(new_book)
-    db.session.add(book24)
     db.session.commit()
 
 

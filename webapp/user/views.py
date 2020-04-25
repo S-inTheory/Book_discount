@@ -1,9 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from webapp.user.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
-from webapp.user.models import User, Book
+from webapp.user.models import User
 from webapp import db
-from webapp.books.forms import SearchForm
 
 
 blueprint = Blueprint('user', __name__, url_prefix='/users')

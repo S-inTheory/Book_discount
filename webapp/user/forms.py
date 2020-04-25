@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm, Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 
-from webapp.user.models import User, Book
+from webapp.user.models import User
 
 
 class LoginForm(FlaskForm):

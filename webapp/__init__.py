@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, login_required
 from flask_migrate import Migrate
 
-from webapp.user.models import db, User, Book
+from webapp.user.models import db, User
+from webapp.books.models import db, Book
 from webapp.books.forms import SearchForm
 from webapp.books.parsers import books_find
 from webapp.user.views import blueprint as user_blueprint
@@ -33,7 +34,8 @@ def create_app():
     def search_process():
         form = SearchForm()
         new_book = form.book.data
-        return books_find.get_search_books(new_book)
+        books_find.get_search_books(new_book)
+        return redirect(url_for('index'))
 
 
 

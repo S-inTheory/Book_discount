@@ -22,24 +22,6 @@ class User(db.Model, UserMixin):
         return '<User {}>'.format(self.username)
 
 
-class Impressum(db.Model):
-    author = db.Column(db.String, primary_key=True, unique=False)
-    publisher = db.Column(db.String, primary_key=True, unique=False)
 
-
-class Book(db.Model):
-    title = db.Column(db.String, primary_key=True, unique=False)
-    url_labirint = db.Column(db.String, unique=False)
-    url_book24 = db.Column(db.String, unique=False)
-    price_labirint = db.Column(db.Integer, unique=False)
-    price_book24 = db.Column(db.Integer, unique=False)
-    author = db.Column(db.String,
-                       db.ForeignKey('impressum.author', ondelete='CASCADE'),
-                       index=True
-                       )
-    publisher = db.Column(db.String,
-                          db.ForeignKey('impressum.publisher'),
-                          index=True
-                          )
 
 
