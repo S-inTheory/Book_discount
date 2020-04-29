@@ -30,15 +30,25 @@ def create_app():
         search_form = SearchForm()
         return render_template('/base.html', title=page_title, form=search_form)
 
+    @app.route('/', methods=['POST'])
+    def search_result():
+        page_title = 'Результаты поиска'
+        form = SearchForm()
+        if form.validate_on_submit():
+            try:
+                new_book = Book.title
+                books_list = new_book.query.filter(Book.title.like('%' + form.book.data + '%'))
+                return render_template('books/search_result.html', title=page_title, books_list=books_list, form=form)
+            except TypeError:
+                print('Такой книги не нашлось, поискать ещё?')
+        return render_template('books/search_result.html', title=page_title, form=form)
+
     @app.route('/search_process', methods=['POST'])
     def search_process():
         form = SearchForm()
         new_book = form.book.data
         books_find.get_search_books(new_book)
-        return redirect(url_for('index'))
-
-
-
+        return render_template('books/search_result.html', form=form)
 
     @app.route('/main')
     @login_required
