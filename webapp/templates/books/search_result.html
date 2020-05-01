@@ -23,14 +23,27 @@
         {{ form.not_found() }}
     </form>
 
-{% endblock %}
   </div>
 </nav>
+
+    <div class="col-8">
+        {% for book in books_list %}
+        <img src='{{ url_for("static", filename="book_covers/" + book.title) }}' alt="book_cover" width="213px" height="330px"><br>
+        Автор: {{ book.impressum_author }}<br>
+        Издательство: {{ book.impressum_publisher }}<br>
+        Название: {{ book.title }}<br>
+        Цена в <a class="nav-link" href="{{ book.url_labirint }}">Лабиринте</a> - {{ book.price_labirint }}<br>
+        Цена в <a class="nav-link" href="{{ book.url_book24 }}">Book24</a> - {{ book.price_book24 }}<br>
+
+        {% endfor %}
+
+</div>
 
 
 <body>
 
 
+{% endblock %}
 
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
